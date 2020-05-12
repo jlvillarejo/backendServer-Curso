@@ -6,7 +6,12 @@ var bodyParser = require('body-parser');
 // Importar rutas
 var appRoutes = require('./routes/appRoute');
 var usuarioRoutes = require('./routes/usuarioRoutes');
+var hospitalRoutes = require('./routes/hospitalRoutes');
+var medicoRoutes = require('./routes/medicoRoutes');
 var loginRoutes = require('./routes/loginRoutes');
+var searchRoutes = require('./routes/searchRoutes');
+var uploadRoutes = require('./routes/uploadRoutes');
+var imgRoutes = require('./routes/imgRoutes');
 
 // Inicializar variables
 var app = express();
@@ -28,9 +33,19 @@ mongoose.connection.openUri(
   }
 );
 
+// Server index config
+// var serveIndex = require('serve-index');
+// app.use(express.static(__dirname + '/'));
+// app.use('/uploads', serveIndex(__dirname + '/uploads'));
+
 // Rutas
 app.use('/user', usuarioRoutes);
+app.use('/hospital', hospitalRoutes);
+app.use('/medico', medicoRoutes);
+app.use('/busqueda', searchRoutes);
+app.use('/upload', uploadRoutes);
 app.use('/login', loginRoutes);
+app.use('/img', imgRoutes);
 app.use('/', appRoutes);
 
 // Activar servidor y escuchar en un puerto
