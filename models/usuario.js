@@ -22,6 +22,7 @@ var usuarioSchema = new Schema({
   password: { type: String, required: [true, 'La contraseña es obligatoria'] },
   img: { type: String, required: false },
   rol: { type: String, required: false, default: 'USER_ROLE', enum: rolesOK },
+  google: { type: Boolean, defalut: false },
 });
 
 usuarioSchema.plugin(uniqueValidator, { message: '{PATH} debe ser único' });
