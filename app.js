@@ -2,6 +2,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+var cors = require('cors');
 
 // Importar rutas
 var appRoutes = require('./routes/appRoute');
@@ -15,6 +16,8 @@ var imgRoutes = require('./routes/imgRoutes');
 
 // Inicializar variables
 var app = express();
+
+app.use(cors());
 
 // Body-Parser
 //
